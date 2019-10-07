@@ -4,10 +4,13 @@ require 'hanami/model'
 require_relative '../lib/calculate'
 require_relative '../apps/web/application'
 require_relative '../apps/api/application'
+require "hanami/middleware/body_parser"
 
 Hanami.configure do
   mount Api::Application, at: '/api'
   mount Web::Application, at: '/'
+
+  middleware.use Hanami::Middleware::BodyParser, :json
 
   model do
     ##
