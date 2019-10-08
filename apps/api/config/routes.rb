@@ -1,1 +1,2 @@
-post '/register_cost', to: 'register_cost#create'
+post '/distance', to: 'register_cost#create'
+get '/cost', to: 'calculator#cost'

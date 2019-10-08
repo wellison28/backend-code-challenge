@@ -14,11 +14,16 @@ module Api
 
         def save_values(origin, destination, dist)
           distance = DistanceRepository.new
-          distance.create(origin: origin, destination: destination, distance: dist)
+          records = distance.origin_destination(origin, destination)
+          if records.any?
+            distance.update(records[0].id, distance: dist)
+          else
+            distance.create(origin: origin, destination: destination, distance: dist)
+          end
         end
 
         def parse_values
-          params[:values].split(" ")
+          request.body.read.split(" ")
         end
       end
     end
