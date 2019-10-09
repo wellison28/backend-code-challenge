@@ -6,13 +6,17 @@ module Api
 
         def call(params)
           distance = get_lowest_path
-
-          if distance.nil?
-            self.status = 404
-            self.body = "Path not exists!" 
+          if valid_params?
+            if distance.nil?
+              self.status = 404
+              self.body = "Path not exists!" 
+            else
+              self.status = 201
+              self.body = calculate_cost(distance) 
+            end
           else
-            self.status = 201
-            self.body = calculate_cost(distance) 
+            self.status = 400
+            self.body = "Weight value invalid!"
           end
         end
 
@@ -32,6 +36,10 @@ module Api
           end
 
           graph.dijkstra(params[:origin], params[:destination])
+        end
+
+        def valid_params?
+          params[:weight].to_i > 0 && params[:weight].to_i <= 50
         end
       end
     end
