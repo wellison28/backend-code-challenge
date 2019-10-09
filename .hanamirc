@@ -1,0 +1,3 @@
+project=backend-code-challenge
+test=rspec
+template=erb
