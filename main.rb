@@ -17,7 +17,7 @@ class App < Sinatra::Base
     if Service::valid_params?(params)
       if distance.nil?
         status 404
-        {messsage: "Path not exists!"}
+        {messsage: "Route not exists!"}
       else
         status 201
         Service::calculate_cost(distance, params) 
