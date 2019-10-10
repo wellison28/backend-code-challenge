@@ -3,8 +3,8 @@ require 'sinatra'
 require 'sinatra/reloader' if development?
 require 'sinatra/activerecord'
 require_relative 'models/distance'
-require_relative 'lib/diikstra/edge'
-require_relative 'lib/diikstra/graph'
+require_relative 'lib/dijkstra/edge'
+require_relative 'lib/dijkstra/graph'
 require_relative 'lib/services/utils'
 
 class App < Sinatra::Base
