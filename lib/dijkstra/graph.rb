@@ -1,6 +1,6 @@
 require_relative 'edge.rb'
 
-module Diikstra
+module Dijkstra
   class Graph < Array
     attr_reader :edges
     

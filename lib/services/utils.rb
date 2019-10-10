@@ -1,4 +1,4 @@
-require_relative '../diikstra/graph'
+require_relative '../dijkstra/graph'
 
 module Service
   def self.save_values(origin, destination, dist)
@@ -24,7 +24,7 @@ module Service
 
   def self.get_lowest_path(params)
     distances = Distance.all
-    graph = Diikstra::Graph.new
+    graph = Dijkstra::Graph.new
     distances.each do |distance|
       graph << distance.origin unless graph.include?(distance.origin)
       graph << distance.destination unless graph.include?(distance.destination)

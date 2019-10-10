@@ -1,4 +1,4 @@
-module Diikstra
+module Dijkstra
   class Edge
     attr_accessor :src, :dst, :length
     
