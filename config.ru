@@ -1,3 +1,4 @@
-require './config/environment'
+require 'bundler/setup'
+require_relative 'main.rb'
 
-run Hanami.app
+run App

@@ -1,28 +1,13 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
-gem 'rake'
-gem 'hanami',       '~> 1.3'
-gem 'hanami-model', '~> 1.3'
-
-gem 'pg'
-
-group :development do
-  # Code reloading
-  # See: https://guides.hanamirb.org/projects/code-reloading
-  gem 'shotgun', platforms: :ruby
-  gem 'hanami-webconsole'
-  gem 'pry'
-end
-
-group :test, :development do
-  gem 'dotenv', '~> 2.4'
-end
+gem "sinatra"
+gem 'sinatra-contrib'
+gem "pg"    # for Postgres
+gem "rake"  # so we can run Rake tasks
+gem "sinatra-activerecord"    # for Active Record models
 
 group :test do
-  gem 'rspec'
-  gem 'capybara'
-end
-
-group :production do
-  # gem 'puma'
+  gem 'rack-test'
+  gem "pry"
+  gem "rspec"
 end
