@@ -5,4 +5,9 @@ gem 'sinatra-contrib'
 gem "pg"    # for Postgres
 gem "rake"  # so we can run Rake tasks
 gem "sinatra-activerecord"    # for Active Record models
-gem "pry"
+
+group :test do
+  gem 'rack-test'
+  gem "pry"
+  gem "rspec"
+end
